@@ -84,7 +84,7 @@ The project leverages transformer models from Hugging Face to determine the orig
 
 ## Usage
 
-### Fine tunning the model
+### Fine tuning the model
 1. Open the file model_finetuning.py and make below changes [optional]
 1. Select Model and Dataset of your choice
     ```bash
