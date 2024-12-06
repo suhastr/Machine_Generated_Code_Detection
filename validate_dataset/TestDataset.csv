@@ -1,0 +1,1003 @@
+code,generated
+"# 1. Simple Prime Number Checker
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True",1
+"# 10. Basic Configuration Parser
+import json
+
+class ConfigParser:
+    def __init__(self, config_file):
+        with open(config_file, 'r') as file:
+            self.config = json.load(file)
+    
+    def get_value(self, key, default=None):
+        return self.config.get(key, default)
+    
+    def update_value(self, key, value):
+        self.config[key] = value
+        ",1
+"import os
+
+def calculate_directory_size(directory):
+    total_size = 0
+    for dirpath, dirnames, filenames in os.walk(directory):
+        for filename in filenames:
+            file_path = os.path.join(dirpath, filename)
+            total_size += os.path.getsize(file_path)
+    return total_size",1
+"from PIL import Image
+from PIL.ExifTags import TAGS
+
+def extract_image_metadata(image_path):
+    image = Image.open(image_path)
+    metadata = {}
+    exif_data = image._getexif()
+    
+    if exif_data:
+        for tag_id, value in exif_data.items():
+            tag_name = TAGS.get(tag_id, tag_id)
+            metadata[tag_name] = value
+    
+    return metadata",1
+"class ExpenseTracker:
+    def __init__(self):
+        self.expenses = {}
+    
+    def add_expense(self, category, amount):
+        if category not in self.expenses:
+            self.expenses[category] = 0
+        self.expenses[category] += amount
+    
+    def get_total_expenses(self):
+        return sum(self.expenses.values())
+    
+    def get_category_breakdown(self):
+        return dict(self.expenses)",1
+"import socket
+
+def scan_ports(host, start_port, end_port):
+    open_ports = []
+    for port in range(start_port, end_port + 1):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(1)
+        result = sock.connect_ex((host, port))
+        if result == 0:
+            open_ports.append(port)
+        sock.close()
+    return open_ports",1
+"def advanced_addition(a, b):
+    print(""Starting addition process"")
+    result = a + b
+    print(f""Adding {a} and {b}"")
+    print(f""Result of addition: {result}"")
+    return result",1
+"def number_analyzer(number):
+    print(f""Analyzing number: {number}"")
+    is_even = number % 2 == 0
+    is_positive = number > 0
+    square_value = number ** 2
+    cube_value = number ** 3
+    print(f""Is even: {is_even}"")
+    print(f""Is positive: {is_positive}"")
+    return {
+        'number': number,
+        'is_even': is_even,
+        'is_positive': is_positive,
+        'square': square_value,
+        'cube': cube_value
+    }",1
+"def string_manipulator(text):
+    print(f""Original text: {text}"")
+    uppercase_text = text.upper()
+    lowercase_text = text.lower()
+    reversed_text = text[::-1]
+    text_length = len(text)
+    print(f""Uppercase: {uppercase_text}"")
+    print(f""Lowercase: {lowercase_text}"")
+    print(f""Reversed: {reversed_text}"")
+    print(f""Length: {text_length}"")
+    return {
+        'original': text,
+        'uppercase': uppercase_text,
+        'lowercase': lowercase_text,
+        'reversed': reversed_text,
+        'length': text_length
+    }",1
+"def list_processor(numbers):
+    print(f""Input list: {numbers}"")
+    total_sum = sum(numbers)
+    average = total_sum / len(numbers)
+    max_value = max(numbers)
+    min_value = min(numbers)
+    sorted_list = sorted(numbers)
+    print(f""Sum of numbers: {total_sum}"")
+    print(f""Average: {average}"")
+    print(f""Maximum value: {max_value}"")
+    print(f""Minimum value: {min_value}"")
+    return {
+        'sum': total_sum,
+        'average': average,
+        'max': max_value,
+        'min': min_value,
+        'sorted': sorted_list
+    }",1
+"def math_operations(a, b):
+    print(f""Performing operations on {a} and {b}"")
+    addition = a + b
+    subtraction = a - b
+    multiplication = a * b
+    
+    # Avoid division by zero
+    if b != 0:
+        division = a / b
+    else:
+        division = ""Cannot divide by zero""
+    
+    power = a ** b
+    print(f""Addition: {addition}"")
+    print(f""Subtraction: {subtraction}"")
+    print(f""Multiplication: {multiplication}"")
+    print(f""Division: {division}"")
+    return {
+        'addition': addition,
+        'subtraction': subtraction,
+        'multiplication': multiplication,
+        'division': division,
+        'power': power
+    }",1
+"
+# 2. Basic Contact Management Class
+class ContactManager:
+    def __init__(self):
+        self.contacts = {}
+    
+    def add_contact(self, name, phone, email):
+        self.contacts[name] = {
+            'phone': phone,
+            'email': email
+        }
+    
+    def get_contact(self, name):
+        return self.contacts.get(name, None)
+
+
+
+
+
+
+
+       
+
+",1
+"def math_operations(a, b):
+    print(f""Performing operations on {a} and {b}"")
+    addition = a + b
+    subtraction = a - b
+    multiplication = a * b
+    
+    # Avoid division by zero
+    if b != 0:
+        division = a / b
+    else:
+        division = ""Cannot divide by zero""
+    
+    power = a ** b
+    print(f""Addition: {addition}"")
+    print(f""Subtraction: {subtraction}"")
+    print(f""Multiplication: {multiplication}"")
+    print(f""Division: {division}"")
+    return {
+        'addition': addition,
+        'subtraction': subtraction,
+        'multiplication': multiplication,
+        'division': division,
+        'power': power
+    }",1
+"def number_classifier(number):
+    print(f""Classifying number: {number}"")
+    is_even = number % 2 == 0
+    is_prime = True
+    
+    if number < 2:
+        is_prime = False
+    
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
+            is_prime = False
+            break
+    
+    print(f""Is even: {is_even}"")
+    print(f""Is prime: {is_prime}"")
+    
+    return {
+        'number': number,
+        'is_even': is_even,
+        'is_prime': is_prime
+    }",1
+"def temperature_converter(celsius):
+    print(f""Converting {celsius} degrees Celsius"")
+    fahrenheit = (celsius * 9/5) + 32
+    kelvin = celsius + 273.15
+    
+    print(f""Celsius: {celsius}"")
+    print(f""Fahrenheit: {fahrenheit}"")
+    print(f""Kelvin: {kelvin}"")
+    
+    return {
+        'celsius': celsius,
+        'fahrenheit': fahrenheit,
+        'kelvin': kelvin
+    }",1
+"def fibonacci_generator(n):
+    print(f""Generating Fibonacci sequence for {n} terms"")
+    
+    # Initialize the sequence
+    sequence = [0, 1]
+    
+    # Generate remaining terms
+    while len(sequence) < n:
+        next_term = sequence[-1] + sequence[-2]
+        sequence.append(next_term)
+    
+    print(f""Fibonacci sequence: {sequence}"")
+    
+    return {
+        'sequence': sequence,
+        'length': len(sequence),
+        'last_term': sequence[-1]
+    }",1
+"def palindrome_checker(text):
+    print(f""Checking if '{text}' is a palindrome"")
+    
+    # Remove spaces and convert to lowercase
+    clean_text = text.replace(' ', '').lower()
+    
+    # Check if text is equal to its reverse
+    is_palindrome = clean_text == clean_text[::-1]
+    
+    print(f""Original text: {text}"")
+    print(f""Cleaned text: {clean_text}"")
+    print(f""Is palindrome: {is_palindrome}"")
+    
+    return {
+        'original': text,
+        'is_palindrome': is_palindrome,
+        'cleaned_text': clean_text
+    }",1
+"def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+print(is_prime(29))
+",1
+"def merge_sorted_lists(lst1, lst2):
+    return sorted(lst1 + lst2)
+
+print(merge_sorted_lists([1, 3, 5], [2, 4, 6]))
+",1
+"def reverse_string(s):
+    return s[::-1]
+
+print(reverse_string(""Hello, World!""))
+",1
+"def count_vowels(s):
+    vowels = 'aeiou'
+    return sum(1 for char in s.lower() if char in vowels)
+
+print(count_vowels(""Artificial Intelligence""))
+",1
+"def transpose_matrix(matrix):
+    return [[row[i] for row in matrix] for i in range(len(matrix[0]))]
+
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print(transpose_matrix(matrix))
+",1
+"
+# 3. Recursive Fibonacci Sequence Generator
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)",1
+"def string_counter(text):
+    print(f""Analyzing text: {text}"")
+    
+    # Count total characters
+    total_characters = len(text)
+    
+    # Count characters excluding spaces
+    characters_no_space = len(text.replace(' ', ''))
+    
+    # Count words
+    words = text.split()
+    word_count = len(words)
+    
+    # Count unique words
+    unique_words = len(set(words))
+    
+    print(f""Total characters: {total_characters}"")
+    print(f""Characters (no spaces): {characters_no_space}"")
+    print(f""Word count: {word_count}"")
+    print(f""Unique words: {unique_words}"")
+    
+    return {
+        'total_characters': total_characters,
+        'characters_no_space': characters_no_space,
+        'word_count': word_count,
+        'unique_words': unique_words
+    }",1
+"def transpose_matrix(matrix):
+    return [[row[i] for row in matrix] for i in range(len(matrix[0]))]
+
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print(transpose_matrix(matrix))
+",1
+"def sum_of_squares(lst):
+    return sum(x**2 for x in lst)
+
+print(sum_of_squares([1, 2, 3, 4, 5]))
+",1
+"def is_palindrome(s):
+    return s == s[::-1]
+
+print(is_palindrome(""racecar""))
+",1
+"def sort_dict_by_value(d):
+    return {k: v for k, v in sorted(d.items(), key=lambda item: item[1])}
+
+grades = {""Alice"": 85, ""Bob"": 90, ""Charlie"": 78}
+print(sort_dict_by_value(grades))
+",1
+"def is_leap_year(year):
+    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+
+print(is_leap_year(2024))
+",1
+"def count_words(sentence):
+    return len(sentence.split())
+
+print(count_words(""This is a simple sentence with seven words.""))
+",1
+"import random
+import string
+
+def generate_password(length):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    return ''.join(random.choice(characters) for _ in range(length))
+
+print(generate_password(12))
+",1
+"def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+print(celsius_to_fahrenheit(25))
+",1
+"def find_largest(lst):
+    return max(lst)
+
+print(find_largest([1, 2, 3, 99, 45]))
+",1
+"# 4. Basic File Logger
+import logging
+
+class FileLogger:
+    def __init__(self, filename):
+        logging.basicConfig(
+            filename=filename, 
+            level=logging.INFO,
+            format='%(asctime)s - %(levelname)s - %(message)s'
+        )
+    
+    def log_info(self, message):
+        logging.info(message)
+    
+    def log_error(self, message):
+        logging.error(message)
+",1
+"def is_armstrong(num):
+    power = len(str(num))
+    return num == sum(int(digit)**power for digit in str(num))
+
+print(is_armstrong(153))
+",1
+"def bubble_sort(lst):
+    n = len(lst)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if lst[j] > lst[j+1]:
+                lst[j], lst[j+1] = lst[j+1], lst[j]
+    return lst
+
+print(bubble_sort([64, 34, 25, 12, 22, 11, 90]))
+",1
+"def contains_substring(s, sub):
+    return sub in s
+
+print(contains_substring(""hello world"", ""world""))
+",1
+"def multiplication_table(n):
+    for i in range(1, 11):
+        print(f""{n} x {i} = {n * i}"")
+
+multiplication_table(5)
+",1
+"def sum_of_digits(n):
+    return sum(int(digit) for digit in str(n))
+
+print(sum_of_digits(12345))
+",1
+"def filter_even_numbers(lst):
+    return [x for x in lst if x % 2 == 0]
+
+print(filter_even_numbers([1, 2, 3, 4, 5, 6]))
+",1
+"from collections import Counter
+
+def word_frequency(text):
+    words = text.split()
+    return Counter(words)
+
+print(word_frequency(""hello world hello""))
+",1
+"from collections import Counter
+
+def word_frequency(text):
+    words = text.split()
+    return Counter(words)
+
+print(word_frequency(""hello world hello""))
+",1
+"def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+print(gcd(48, 18))
+",1
+"import requests
+
+def fetch_data(api_url):
+    response = requests.get(api_url)
+    return response.json()
+
+print(fetch_data(""https://jsonplaceholder.typicode.com/posts/1""))
+",1
+"
+# 5. Simple Linear Regression
+import numpy as np
+
+def linear_regression(X, y):
+    X = np.array(X)
+    y = np.array(y)
+    
+    # Calculate coefficients
+    X_mean = np.mean(X)
+    y_mean = np.mean(y)
+    
+    numerator = np.sum((X - X_mean) * (y - y_mean))
+    denominator = np.sum((X - X_mean)**2)
+    
+    slope = numerator / denominator
+    intercept = y_mean - slope * X_mean
+    
+    return slope, intercept",1
+"import random
+
+def roll_dice():
+    return random.randint(1, 6), random.randint(1, 6)
+
+print(roll_dice())
+",1
+"
+# 6. Basic Tree Node Structure
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+    
+    def insert(self, new_value):
+        if new_value < self.value:
+            if self.left is None:
+                self.left = TreeNode(new_value)
+            else:
+                self.left.insert(new_value)
+        else:
+            if self.right is None:
+                self.right = TreeNode(new_value)
+            else:
+                self.right.insert(new_value)",1
+"# 7. Basic Encryption Utility
+def simple_encrypt(text, shift=3):
+    result = []
+    for char in text:
+        if char.isalpha():
+            # Determine the case and base
+            is_upper = char.isupper()
+            base = ord('A') if is_upper else ord('a')
+            
+            # Apply Caesar cipher
+            encrypted_char = chr((ord(char) - base + shift) % 26 + base)
+            result.append(encrypted_char)
+        else:
+            result.append(char)
+    return ''.join(result)",1
+"
+# 8. Basic Weather Data Processor
+class WeatherDataProcessor:
+    def __init__(self, data):
+        self.data = data
+    
+    def get_average_temperature(self):
+        return sum(self.data) / len(self.data)
+    
+    def get_temperature_range(self):
+         return max(self.data) - min(self.data)",1
+"
+# 9. Simple Depth-First Search
+def depth_first_search(graph, start, visited=None):
+    if visited is None:
+        visited = set()
+    
+    visited.add(start)
+    print(start, end=' ')
+    
+    for next in graph[start] - visited:
+        depth_first_search(graph, next, visited)
+    
+    return visited",1
+"N = int(input())
+for i in range(N):
+    triangle = sorted([int(n) for n in input().split()])
+    if triangle[0]**2 + triangle[1]**2 == triangle[2]**2:
+        print('YES')
+    else:
+        print('NO')
+
+",0
+"# -*- coding:utf-8 -*-
+import sys
+import math
+
+array =[]
+for line in sys.stdin:
+    array.append(line)
+    
+for i in range(len(array)):
+    num = array[i].split(' ')
+    a = int(num[0])
+    b = int(num[1])
+    n = a + b
+    print(int(math.log10(n) + 1))",0
+"from sys import stdin
+for line in stdin:
+    print(len(str(sum(map(int, line.split())))))
+
+",0
+"# coding: utf-8
+N = 10
+h = []
+for n in range(N):
+    h.append(int(input()))
+
+h = sorted(h, reverse = True)
+
+for i in range(3):
+    print(h[i])",0
+"ans=[]
+for i in range (0,10):
+    ans.append(int(input()))
+ans.sort(reverse=True)
+for i in range (0,3):
+    print(ans[i])",0
+"M = 9
+N = 9
+
+def main():
+    for i in range(1,M+1,1):
+        for j in range(1,N+1,1):
+            mult = i * j
+            print(str(i) + ""x"" + str(j) + ""="" + str(i * j))
+main()
+",0
+"lists = []
+for i in range(10):
+    a = int(input())
+    lists.append(a)
+f = sorted(lists, reverse = True)
+for i in range(3):
+    print(f[i])",0
+"while True:
+    try:print(len(str(sum(map(int,input().split())))))
+    except:break
+",0
+"import sys
+
+n = input()
+
+for _ in range(int(n)):
+  a, b, c = sorted(map(int, sys.stdin.readline().split()))
+  if a * a + b*b == c* c:
+    print(""YES"")
+  else:
+    print(""NO"")",0
+"import sys
+heights = [int(i) for i in sys.stdin.read().split()]
+heights.sort(reverse=True)
+print(""\n"".join(map(str, heights[:3])))",0
+"import sys
+import fractions
+def lcm(a,b):
+    return int(a*b/fractions.gcd(a,b))
+
+if __name__ == '__main__':
+    for line in sys.stdin:
+        a,b = map(int,line.split())
+        print(int(fractions.gcd(a,b)),lcm(a,b))",0
+"import sys;
+
+for line in sys.stdin:
+	n = int(line);
+	for i in range(0, n):
+		a = [int(num) for num in input().split()];
+		a.sort();
+		if a[2] ** 2 == (a[0] ** 2) + (a[1] ** 2):
+			print('YES');
+		else:
+			print('NO');",0
+"while True:
+    try:
+        a, b = map(int, input().split())
+    except EOFError:
+        break
+    count=1
+    k=a+b
+    while k>=10:
+        k//=10
+        count+=1
+    print(count)",0
+"import sys
+a = [print(len(str(sum(map(int, line.split()))))) for line in sys.stdin]",0
+"for i in range(1,10):
+    for j in range(1,10):
+        print(i,""x"",j,""="",i*j,sep="""")
+        j+=1
+    i+=1
+
+",0
+"import sys
+import math
+
+for line in sys.stdin:
+  try:
+    a, b = [int(i) for i in line.split()]
+    print(int(math.log10(a + b) + 1))
+  except:
+    break",0
+"import sys
+from operator import add
+
+for i in sys.stdin:
+    print(len(str(add(*list(map(int, i.split()))))))",0
+"for i in range(1, 10):
+
+	for ii in range(1, 10):
+
+		print('{}x{}={}'.format(i, ii, i*ii))",0
+"try:
+    s = []
+    while True:
+        t = input()
+        s.append(t)
+except EOFError:
+    for i in range(len(s)):
+        a = int(s[i].split(' ')[0])
+        b = int(s[i].split(' ')[1])
+        print(len(str(a + b)))",0
+"def GCD(a, b):
+	if b > a:
+		return GCD(b, a)
+	elif a % b == 0:
+		return b
+	return GCD(b, a % b)
+		
+def LCM(a, b):
+	return a * b // GCD(a, b)
+
+import sys
+L = sys.stdin.readlines()
+for line in L:
+	x, y = list(map(int, line.split()))
+	print(GCD(x, y), LCM(x, y))",0
+"for a in range(1,10):
+    for b in range(1,10):
+        print(a, end="""")
+        print(""x"", end="""")
+        print(b, end="""")
+        print(""="", end="""")
+        print(a*b)",0
+"N = int(input())
+
+for i in range(N):
+	num = sorted(map(int, input().split()))
+	if num[0] ** 2 + num[1] ** 2 == num[2] ** 2:
+		print(""YES"")
+	else:
+		print(""NO"")",0
+"for a in range(1,10):
+    for b in range(1,10):
+        ans = a*b
+        print(""%dx%d=%d"" % (a, b, ans))",0
+"
+N = input()
+
+a = []
+for i in range(int(N)):
+    s = input().split()
+    ss = [int(s[0]), int(s[1]), int(s[2])]
+    ss.sort()
+
+    if ss[2]**2 == ss[0]**2 + ss[1]**2:
+        print(""YES"")
+    else:
+        print(""NO"")",0
+"import sys
+
+
+def euc(n,m):
+    if max(n,m)%min(n,m) == 0:
+        return min(n,m)
+    else:
+        return euc(min(n,m), max(n,m)%min(n,m))
+
+
+for line in sys.stdin:
+    a,b = [int(i) for i in line.split()]
+    print(euc(a,b),int(a*b/euc(a,b)))
+
+",0
+"mt = []
+
+for i in range(10):
+        mt.append(int(input()))
+
+mt.sort()
+print( mt[9] )
+print( mt[8] )
+print( mt[7] )",0
+"N=int(input())
+for i in range(N):
+    a, b, c = map(int, input().split())
+    if(a*a==b*b+c*c or b*b==a*a+c*c or c*c==b*b+a*a):
+        print('YES')
+    else:
+        print('NO')",0
+"def solve():
+    for i in range(1,10):
+        for j in range(1,10):
+            print(""{0}x{1}={2}"".format(i,j,i*j))
+ 
+solve()",0
+"import sys
+
+for line in sys.stdin:
+	a, b = map(int, line.split())
+	digitNumber = len(str(a + b))
+	print(digitNumber)",0
+"#2-8
+while True:
+    try:
+
+        def gcd(a,b):
+            if b == 0:
+                return a
+            else:
+                return gcd(b,a%b)
+
+        a = list(map(int,input().split()))
+        a.sort()
+        a.reverse()
+        ans1 = gcd(a[0],a[1])
+        ans2 = int(a[0]*a[1]/ans1)
+
+        print(ans1,ans2)
+    except:
+        break
+",0
+"for i in range(200):
+    
+    try:
+        a,b=map(int,input().split())
+        print(len(str(a+b)))
+    except:
+        pass
+",0
+"for i in range(9):
+    i=i+1
+    for j in range(9):
+        j=j+1
+        print(str(i)+'x'+str(j)+'='+str(i*j))",0
+"# coding: utf-8
+
+def getint():
+    return int(input().rstrip())
+
+def main():
+    ls = []
+    num_of_mount = 10
+    num_of_top = 3
+    
+    for i in range(num_of_mount):
+        ls.append(getint())
+
+    ls.sort(reverse=True)
+
+    for i in range(num_of_top):
+        print(ls[i])
+
+if __name__ == '__main__':
+    main()",0
+"def gcd(a, b):
+    if a > b:
+        a, b = b, a
+    if a == 0:
+        return b
+    else:
+        return gcd(b % a, a)
+
+try:
+    while 1:
+        a,b = list(map(int,input().split()))
+        c = gcd(a, b)
+        print('{} {}'.format(c,int(c * (a/c) * (b/c))))
+
+except Exception:
+    pass",0
+"def gcd(a,b):
+    while True:
+        if a > b:
+            a %= b
+        else:
+            b %= a
+        if a == 0 or b == 0:
+            return max(a,b)
+
+def lcm(a,b,g):
+    return int(a*b/g)
+from sys import stdin
+for l in stdin:
+    a,b = list(map(int,l.split()))
+    g = gcd(a,b)
+    print (""%s %s""%(g,lcm(a,b,g)))",0
+"def main():
+    n = int(input())
+    for i in range(n):
+        Array = list(map(int,input().split()))
+        Array.sort()
+        if Array[2]**2 == Array[0]**2 + Array[1]**2:
+            print(""YES"")
+        else:
+            print(""NO"")
+
+if __name__ == '__main__':
+    main()",0
+"# -*- coding: utf-8 -*-
+
+import sys
+
+def get_digits(n):
+    if n < 0:
+        n *= -1
+    return len(str(n))
+
+
+def main():
+    data = []
+    for line in sys.stdin:
+        a, b = map(int, line.split())
+        digits = get_digits(a+b)
+        print(digits)
+
+if __name__ == '__main__':
+    main()",0
+"import sys
+for i in sys.stdin:
+    try:
+        sidelen = [int(j) for j in i.split("" "")]
+        sidelen.sort(reverse=True)
+        if(sidelen[0]**2 == sidelen[1]**2 + sidelen[2]**2):
+            print(""YES"")
+        else:
+            print(""NO"")
+    except:
+        continue",0
+"for i in range(int(input())):
+    n = [int(i) for i in input().split("" "")]
+    n.sort()
+    print(""YES"" if n[0] * n[0] + n[1] * n[1] == n[2] * n[2] else ""NO"")",0
+"import sys
+for e in sys.stdin:print(len(str(sum(map(int,e.split())))))
+",0
+"for i in range(9):
+    for j in range(9):
+        print(i+1,end='')
+        print('x',end='')
+        print(j+1,end='')
+        print('=',end='')
+        print((i+1)*(j+1))
+",0
+"# Aizu Problem 0003: Is it a Right Triangle?
+#
+import sys, math, os
+
+# read input:
+PYDEV = os.environ.get('PYDEV')
+if PYDEV==""True"":
+    sys.stdin = open(""sample-input.txt"", ""rt"")
+
+
+N = int(input())
+for __ in range(N):
+    a, b, c = sorted([int(_) for _ in input().split()])
+    print(""YES"" if c**2 == a**2 + b**2 else ""NO"")",0
+"import sys
+l = []
+for line in sys.stdin:
+    l.append(line)
+
+for i in range(len(l)):
+    numl = l[i].split(' ')
+    a = int(numl[0])
+    b = int(numl[1])
+    sum = a + b
+    digitstr = ""{0}"".format(sum)
+    print(len(digitstr))",0
+"import sys, fractions
+[[print(""{} {}"".format(int(fractions.gcd(t[0], t[1])), int(t[0] * t[1] / fractions.gcd(t[0], t[1])))) for t in [[int(y) for y in x.split()]]] for x in sys.stdin]",0
+"print(*sorted([int(input()) for _ in [0]*10])[:6:-1], sep=""\n"")",0
+"for _ in range(int(input())):
+    x = list(sorted(map(int, input().split())))
+    print(""YES"" if x[0]**2 + x[1]**2 == x[2]**2 else ""NO"")",0
+"import sys
+a = list(map(int,sys.stdin.readlines()))
+for i in range(10):
+    for j in range(i+1,10):
+        if a[i] < a[j]:
+            a[i],a[j] = a[j],a[i]
+            
+for i in range(3):
+    print(a[i])",0
+"lists = []
+for x in range (0, 10):
+    num = int(input())
+    lists.append(num)
+    
+results = sorted(lists, reverse = True)
+
+print(results[0])
+print(results[1])
+print(results[2])",0
+"#@ /usr/bin/env python3.4
+import sys
+list = sys.stdin.readlines()
+for i in list:
+    num = i[:-1].split(' ', 2)
+    print(len(str(int(num[0])+int(num[1]))))",0
+"x = 1
+y = 1
+
+for x in range(9):
+    for y in range(9):
+        print((x+1),""x"",(y+1),""="",(x+1)*(y+1),sep="""")
+        y = y + 1
+        
+    x = x + 1
+",0
