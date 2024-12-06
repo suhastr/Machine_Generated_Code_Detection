@@ -1,1 +1,20 @@
 
+datasets
+diffusers
+Flask
+flask_cors
+lpips
+matplotlib
+numpy
+pandas
+peft
+Pillow
+quanto
+scikit_learn
+torch
+torchvision
+tqdm
+transformers
+ultralytics
+bitsandbytes
+requests
