@@ -1,1 +1,21 @@
+from collections import deque
 
+# Define a simple customer class
+class Customer:
+    def __init__(self, customer_id):
+        self.customer_id = customer_id
+
+# Simulate the bank queue
+class BankQueueSimulation:
+    def __init__(self):
+        self.queue = deque()
+
+    def new_customer(self, customer_id):
+        customer = Customer(customer_id)
+        self.queue.append(customer)
+
+    def serve_customer(self):
+        if self.queue:
+            customer = self.queue.popleft()
+        else:
+            print("No customers in the queue to serve.")
