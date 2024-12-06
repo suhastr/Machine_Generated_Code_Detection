@@ -9,7 +9,16 @@ This repository provides a solution for detecting machine-generated code using A
 - [Usage](#usage)
 - [Folder and File Structure](#folder-and-file-structure)
 - [API Endpoints](#api-endpoints)
-- [Future Improvements](#future-improvements)
+- [Datasets](#datasets)
+  - [Dataset Description](#dataset-description)
+- [Test](#test)
+- [Results](#results)
+- [Research Paper](#research-paper)
+- [Challenges](#challenges)
+- [Hardware Resource](#hardware-resource)
+- [Conclusion](#conclusion)
+- [Contributors](#contributors)
+- [References](#references)
 
 ---
 
@@ -71,4 +80,109 @@ The project leverages transformer models from Hugging Face to determine the orig
 ---
 
 ## Folder and File Structure
+
+
+---
+
+## API Endpoints
+
+### `/analyze`
+- **Method**: `POST`
+- **Description**: Analyze the submitted code to determine if it is machine-generated.
+- **Request Format**:
+    ```json
+    {
+        "content": "<code to analyze>",
+        "type": "code"
+    }
+    ```
+- **Response Format**:
+    ```json
+    {
+        "codedetector": {
+            "is_ai_generated": "yes/no",
+            "score": 0.95,
+            "result": "AI Generated (Score: 0.9500)"
+        }
+    }
+    ```
+
+---
+
+## Datasets
+
+### Dataset Description
+- The project uses datasets containing human-written and machine-generated code for model training and validation.
+- **Sources**: Open-source repositories, GPT-generated code snippets, and curated datasets.
+- **Format**: JSON or text files, where each entry contains:
+  - Code snippet.
+  - Metadata specifying if it's machine-generated or human-written.
+
+---
+
+## Test
+
+- **Testing Framework**: The tests for the code detection pipeline are provided in `test_prompt.txt`.
+- **Test Cases**:
+  - Valid machine-generated code.
+  - Valid human-written code.
+  - Edge cases like empty inputs or highly obfuscated code.
+
+---
+
+## Results
+
+- The model achieves **X% accuracy** in distinguishing machine-generated code from human-written code.
+- Average confidence score for correct predictions: **Y%**.
+- Evaluation metrics:
+  - Precision: **A%**
+  - Recall: **B%**
+  - F1-score: **C%**
+
+---
+
+## Research Paper
+
+If applicable, include a link to a research paper describing the methodology, experiments, and findings:
+- **Paper Title**: "Detecting Machine-Generated Code with Transformer Models"
+- **Authors**: Your Name, Collaborator Name
+- **Publication**: Add a journal/conference or `arXiv` link.
+
+---
+
+## Challenges
+
+- Fine-tuning large models with limited GPU resources.
+- Identifying high-quality datasets with balanced human and machine-generated code.
+- Mitigating bias in machine-generated code datasets.
+
+---
+
+## Hardware Resource
+
+- **Training**: NVIDIA Tesla V100 (16GB VRAM).
+- **Inference**: Tested on CPU and GPU environments.
+  - Average inference time: **X seconds** on GPU, **Y seconds** on CPU.
+
+---
+
+## Conclusion
+
+This project demonstrates the feasibility of detecting machine-generated code using state-of-the-art transformer models. Future work involves refining models, expanding datasets, and deploying the solution in production environments.
+
+---
+
+## Contributors
+
+- **Your Name** - Initial development.
+- **Collaborator Name** - Research and validation.
+
+---
+
+## References
+
+- Hugging Face Transformers: [https://huggingface.co/transformers/](https://huggingface.co/transformers/)
+- PyTorch: [https://pytorch.org/](https://pytorch.org/)
+- Other relevant resources and citations.
+
 
