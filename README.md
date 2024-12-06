@@ -24,7 +24,7 @@ This repository provides a solution for detecting machine-generated code using A
 
 ## Overview
 
-The project leverages transformer models from Hugging Face to determine the origin of code (machine-generated vs. human-written). It provides a Flask-based backend for serving the analysis and a minimalistic HTML frontend for interacting with the API.
+The project leverages transformer models from Hugging Face to determine the origin of code (machine-generated vs. human-written). It provides a Flask-based backend for serving the analysis and a minimalistic HTML frontend for interacting with the API. This project builds upon the research presented in the paper [Binoculars](https://arxiv.org/pdf/2401.12070). While the original implementation of Binoculars lacked the capability to detect AI-generated code, we have extended its functionality to include robust AI code detection.
 
 ---
 
@@ -43,7 +43,7 @@ The project leverages transformer models from Hugging Face to determine the orig
 ### Prerequisites
 1. Python 3.8 or higher.
 2. A valid Hugging Face authentication token.
-3. GPU support for running large models (optional but recommended).
+3. GPU support must for running large models.
 
 ### Installation
 
@@ -52,13 +52,33 @@ The project leverages transformer models from Hugging Face to determine the orig
     git clone https://github.com/your_username/Machine_Generated_Code_Detection.git
     cd Machine_Generated_Code_Detection
     ```
+    
+3. Create .gitignore file:
+    ```bash
+    # Ignore Python virtual environments
+    venv/
+    __pycache__/
 
-2. Install required Python packages:
+    # Ignore Hugging Face token
+    hugging_face_auth_token.txt
+    ```
+    
+3. Create a virtual environment:
+    ```bash
+    python3 -m venv env_name
+    ```
+    
+4. Activate the Virtual Environment:
+    ```bash
+    source env_name/bin/activate
+    ```
+
+5. Install required Python packages:
     ```bash
     pip install -r requirements.txt
     ```
 
-3. Add your Hugging Face authentication token:
+6. Add your Hugging Face authentication token:
     - Save the token in the `hugging_face_auth_token.txt` file.
 
 ---
@@ -99,7 +119,7 @@ The project leverages transformer models from Hugging Face to determine the orig
 - **Response Format**:
     ```json
     {
-        "codedetector": {
+        "codeclassifier": {
             "is_ai_generated": "yes/no",
             "score": 0.95,
             "result": "AI Generated (Score: 0.9500)"
@@ -116,23 +136,24 @@ The project leverages transformer models from Hugging Face to determine the orig
 - **Sources**: Open-source repositories, GPT-generated code snippets, and curated datasets.
 - **Format**: JSON or text files, where each entry contains:
   - Code snippet.
-  - Metadata specifying if it's machine-generated or human-written.
+  - Label specifying if it's machine-generated (1) or human-written (0).
 
 ---
 
 ## Test
 
-- **Testing Framework**: The tests for the code detection pipeline are provided in `test_prompt.txt`.
+- **Integration Testing**: This test is performed by calling codeclassifier file which reads in the input from the `test_prompt.txt`.
+- **System Testing**: The tests for the code detection pipeline (code_detector_validation_pipeline.py) are provided in `validate_datasets/datasetforyourchoice.csv`.
 - **Test Cases**:
-  - Valid machine-generated code.
-  - Valid human-written code.
-  - Edge cases like empty inputs or highly obfuscated code.
+  - Valid machine-generated code is labelled has 1.
+  - Valid human-written code is labelled has 0.
+
 
 ---
 
 ## Results
 
-- The model achieves **X% accuracy** in distinguishing machine-generated code from human-written code.
+- The model achieves **86% accuracy** in distinguishing machine-generated code from human-written code.
 - Average confidence score for correct predictions: **Y%**.
 - Evaluation metrics:
   - Precision: **A%**
