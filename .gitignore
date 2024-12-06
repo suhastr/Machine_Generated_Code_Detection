@@ -1,1 +1,6 @@
+# Ignore Python virtual environments
+venv/
+__pycache__/
+
+# Ignore Hugging Face token
 hugging_face_auth_token.txt
