@@ -7,8 +7,9 @@ from typing import Tuple
 import re
 
 # Model configuration constants
-PERFORMER_MODEL_NAME = "HuggingFaceTB/SmolLM-360M-Instruct"
-OBSERVER_MODEL_NAME = "HuggingFaceTB/SmolLM-360M"
+# below is the example, it's not finetuned, you have to replace this once you fine tune the model with appropriate dataset.
+# PERFORMER_MODEL_NAME = "HuggingFaceTB/SmolLM-360M-Instruct"
+# OBSERVER_MODEL_NAME = "HuggingFaceTB/SmolLM-360M"
 
 # Quantization configuration for models
 QUANT_CONFIG = QuantoConfig(weights="int4")
