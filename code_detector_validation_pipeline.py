@@ -86,7 +86,7 @@ def main():
     Main function to execute the analysis pipeline.
     """
     # Load the dataset and shuffle
-    dataset = pd.read_csv("validate_datasets/TestDataset.csv").sample(frac=1).reset_index(drop=True)
+    dataset = pd.read_csv("validate_dataset/TestDataset.csv").sample(frac=1).reset_index(drop=True)
 
     # Extract code and labels
     code_samples = dataset["code"]                     # column names depends on the dataset
