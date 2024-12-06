@@ -13,7 +13,6 @@ This repository provides a solution for detecting machine-generated code using A
   - [Dataset Description](#dataset-description)
 - [Test](#test)
 - [Results](#results)
-- [Research Paper](#research-paper)
 - [Challenges](#challenges)
 - [Hardware Resource](#hardware-resource)
 - [Conclusion](#conclusion)
@@ -85,6 +84,28 @@ The project leverages transformer models from Hugging Face to determine the orig
 
 ## Usage
 
+### Fine tunning the model
+1. Open the file model_finetuning.py and make below changes [optional]
+1. Select Model and Dataset of your choice
+    ```bash
+    # MODEL_TO_FINETUNE = "HuggingFaceTB/SmolLM-360M"
+    # MODEL_TO_FINETUNE = "HuggingFaceTB/SmolLM-360M-Instruct"
+    # SAVE_NAME = "SmolLM-360M-LORA"
+
+    # FINETUNE_DATASET = "ise-uiuc/Magicoder-Evol-Instruct-110K"
+    # FINETUNE_DATASET = "bigcode/starcoderdata"
+    # FINETUNE_DATASET = "iamtarun/code_instructions_120k_alpaca"
+    ```
+3. Set the number of epoch of your choice
+4. Execute the file
+   ```bash
+    python model_tuning.py
+    ```
+5. After the model finishes fine tuning it is saves the model under fine_tuned_model, creates results and log directories with content.
+   ![fine_tuned](https://github.com/user-attachments/assets/7d4bfbfd-7eea-4b87-bc13-c18dab56abf5)
+
+   
+
 ### Running the Server
 1. Start the Flask server:
     ```bash
@@ -133,7 +154,7 @@ The project leverages transformer models from Hugging Face to determine the orig
 
 ### Dataset Description
 - The project uses datasets containing human-written and machine-generated code for model training and validation.
-- **Sources**: Open-source repositories, GPT-generated code snippets, and curated datasets.
+- **Sources**: [Open-source repositories](https://github.com/IBM/Project_CodeNet?tab=readme-ov-file), GPT-generated code snippets, and curated datasets.
 - **Format**: JSON or text files, where each entry contains:
   - Code snippet.
   - Label specifying if it's machine-generated (1) or human-written (0).
@@ -153,37 +174,36 @@ The project leverages transformer models from Hugging Face to determine the orig
 
 ## Results
 
-- The model achieves **86% accuracy** in distinguishing machine-generated code from human-written code.
-- Average confidence score for correct predictions: **Y%**.
-- Evaluation metrics:
-  - Precision: **A%**
-  - Recall: **B%**
-  - F1-score: **C%**
+- The model achieves **87% accuracy** in distinguishing machine-generated code from human-written code.
+![roc_auc](https://github.com/user-attachments/assets/3f24297c-f92d-4e04-8bc5-9fe6a708a512)
 
----
-
-## Research Paper
-
-If applicable, include a link to a research paper describing the methodology, experiments, and findings:
-- **Paper Title**: "Detecting Machine-Generated Code with Transformer Models"
-- **Authors**: Your Name, Collaborator Name
-- **Publication**: Add a journal/conference or `arXiv` link.
 
 ---
 
 ## Challenges
 
-- Fine-tuning large models with limited GPU resources.
-- Identifying high-quality datasets with balanced human and machine-generated code.
-- Mitigating bias in machine-generated code datasets.
+- **Optimizing Fine-Tuning with Limited Resources:**  
+  The model fine-tuning process was constrained by limited GPU, CPU, and computational resources. As a result, we were able to fine-tune the model over a limited number of epochs.
+
+- **Long Training Times vs. Resource Availability:**  
+  Fine-tuning the model for 3 epochs required approximately 18 hours. However, the project was executed on a Hopper system, where the maximum session availability was restricted to 12 hours, presenting a significant challenge.
+
+- **Hyperparameter Optimization and Threshold Tuning:**  
+  Since the algorithms were implemented from scratch with custom improvements, determining the optimal thresholds and hyperparameters to accurately detect AI-generated content was a challenging, highly experimental process.
+
+- **Curating High-Quality Datasets:**  
+  Identifying and sourcing high-quality datasets with a balanced mix of human-generated and machine-generated code required significant effort.
+
+- **Addressing Dataset Bias:**  
+  Special attention was given to mitigating potential biases present in machine-generated code datasets to ensure fairness and accuracy in the model’s predictions.
+
 
 ---
 
 ## Hardware Resource
 
-- **Training**: NVIDIA Tesla V100 (16GB VRAM).
-- **Inference**: Tested on CPU and GPU environments.
-  - Average inference time: **X seconds** on GPU, **Y seconds** on CPU.
+- NVIDIA A100 (80GB VRAM).
+- only 1 GPU 40GB was available per session.
 
 ---
 
@@ -195,8 +215,9 @@ This project demonstrates the feasibility of detecting machine-generated code us
 
 ## Contributors
 
-- **Your Name** - Initial development.
-- **Collaborator Name** - Research and validation.
+- **Suhas** 
+- **Manish**
+- **Kashish**
 
 ---
 
@@ -204,6 +225,15 @@ This project demonstrates the feasibility of detecting machine-generated code us
 
 - Hugging Face Transformers: [https://huggingface.co/transformers/](https://huggingface.co/transformers/)
 - PyTorch: [https://pytorch.org/](https://pytorch.org/)
-- Other relevant resources and citations.
+
+## Citation
+
+```bibtex
+@article{hans2024spotting,
+  title={Spotting LLMs With Binoculars: Zero-Shot Detection of Machine-Generated Text},
+  author={Hans, Abhimanyu and Schwarzschild, Avi and Cherepanova, Valeriia and Kazemi, Hamid and Saha, Aniruddha and Goldblum, Micah and Geiping, Jonas and Goldstein, Tom},
+  journal={arXiv preprint arXiv:2401.12070},
+  year={2024}
+}
 
 
