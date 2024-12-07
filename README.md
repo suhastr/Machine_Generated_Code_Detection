@@ -153,7 +153,7 @@ The project leverages transformer models from Hugging Face to determine the orig
 ## Datasets
 
 ### Dataset Description
-- The project uses datasets containing human-written and machine-generated code for model training and validation.
+- The project uses datasets containing human-written and machine-generated code for model training and validation which was generated using the [research paper](https://arxiv.org/pdf/2401.03676).
 - **Sources**: [Open-source repositories](https://github.com/IBM/Project_CodeNet?tab=readme-ov-file), GPT-generated code snippets, and [research_paper](https://arxiv.org/pdf/2401.03676).
 - **Format**: JSON or text files, where each entry contains:
   - Code snippet.
