@@ -164,7 +164,7 @@ The project leverages transformer models from Hugging Face to determine the orig
 ## Test
 
 - **Integration Testing**: This test is performed by calling codeclassifier file which reads in the input from the `test_prompt.txt`.
-- **System Testing**: The tests for the code detection pipeline (code_detector_validation_pipeline.py) are provided in `validate_dataset/datasetforyourchoice.csv`.
+- **System Testing**: The tests for the code detection pipeline (code_detector_validation_pipeline.py) are provided in `validate_dataset/TestDataset.csv`.
 - **Test Cases**:
   - Valid machine-generated code is labelled has 1.
   - Valid human-written code is labelled has 0.
