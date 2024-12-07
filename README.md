@@ -99,7 +99,7 @@ The project leverages transformer models from Hugging Face to determine the orig
 3. Set the number of epoch of your choice
 4. Execute the file
    ```bash
-    python model_tuning.py
+    python model_fine_tuning.py
     ```
 5. After the model finishes fine tuning it is saves the model under fine_tuned_model, creates results and log directories with content.
    ![fine_tuned](https://github.com/user-attachments/assets/7d4bfbfd-7eea-4b87-bc13-c18dab56abf5)
