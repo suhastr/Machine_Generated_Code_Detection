@@ -5,6 +5,7 @@ This repository provides a solution for detecting machine-generated code using A
 ## Table of Contents
 - [Overview](#overview)
 - [Features](#features)
+- [Frameworks and Libraries](#frameworks-and-libraries)
 - [Setup Instructions](#setup-instructions)
 - [Usage](#usage)
 - [Folder and File Structure](#folder-and-file-structure)
@@ -12,6 +13,7 @@ This repository provides a solution for detecting machine-generated code using A
 - [Datasets](#datasets)
   - [Dataset Description](#dataset-description)
 - [Test](#test)
+- [Evaluation](#evaluation)
 - [Results](#results)
 - [Challenges](#challenges)
 - [Hardware Resource](#hardware-resource)
@@ -34,6 +36,14 @@ The project leverages transformer models from Hugging Face to determine the orig
 - **Backend API**: Flask server that processes the requests and returns AI analysis results.
 - **Custom Model Fine-Tuning**: Scripts for fine-tuning the models using specific datasets.
 - **Cross-Origin Resource Sharing (CORS)**: Enables integration with external services.
+
+---
+
+## Frameworks and Libraries
+
+- `transformers` (by Hugging Face) for pretrained BERT model
+- `torch` for model training and inference
+- `sklearn` for evaluation metrics
 
 ---
 
@@ -172,6 +182,12 @@ The project leverages transformer models from Hugging Face to determine the orig
 
 ---
 
+## Evaluation
+
+- Accuracy, precision, recall, and confusion matrix plotted via `matplotlib` & `seaborn`.
+
+---
+
 ## Results
 
 - The model achieves **87% accuracy** in distinguishing machine-generated code from human-written code.
@@ -204,6 +220,7 @@ The project leverages transformer models from Hugging Face to determine the orig
 
 - NVIDIA A100 (80GB VRAM).
 - only 1 GPU 40GB was available per session.
+- HPC
 
 ---
 
